@@ -6,11 +6,9 @@ class RingBuffer:
         self.index = 0
 
     def append(self, item):
-        print(self.index)
-
         self.storage[self.index] = item
 
-        if self.index > 3:
+        if self.index > self.capacity - 2:
             self.index = 0
         else:
             self.index += 1
@@ -19,7 +17,7 @@ class RingBuffer:
         return [i for i in self.storage if i]
 
 
-buffer = RingBuffer(5)
+buffer = RingBuffer(2)
 
 print(buffer.get())
 
@@ -27,10 +25,11 @@ buffer.append('a')
 buffer.append('b')
 buffer.append('c')
 buffer.append('d')
-buffer.append('e')
-buffer.append('f')
-buffer.append('g')
-buffer.append('h')
-buffer.append('i')
+# buffer.append('e')
+# buffer.append('f')
+# buffer.append('g')
+# buffer.append('h')
+# buffer.append('i')
+# buffer.append('j')
 
 print(buffer.get())
